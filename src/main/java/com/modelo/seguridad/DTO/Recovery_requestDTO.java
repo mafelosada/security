@@ -1,7 +1,7 @@
 package com.modelo.seguridad.DTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.modelo.seguridad.model.user;
+import com.modelo.seguridad.model.Users;
 
 public class Recovery_requestDTO {
     @JsonProperty("id")
@@ -9,12 +9,12 @@ public class Recovery_requestDTO {
     private String email;
     private String token;
     private long expirationTime;
-    private user user;
+    private Users user;
 
     public Recovery_requestDTO() {
     }
 
-    public Recovery_requestDTO(int recovery_requestid, String email, String token, long expirationTime, user user) {
+    public Recovery_requestDTO(int recovery_requestid, String email, String token, long expirationTime, Users user) {
         this.recovery_requestid = recovery_requestid;
         this.email = email;
         this.token = token;
@@ -50,10 +50,10 @@ public class Recovery_requestDTO {
         this.expirationTime = expirationTime;
     }
 
-    public user getUser() {
+    public Users getUser() {
         return user;
     }
-    public void setUser(user user) {
+    public void setUser(Users user) {
         this.user = user;
     }
     

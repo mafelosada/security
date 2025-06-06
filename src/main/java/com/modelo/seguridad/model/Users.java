@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name = "users")
-public class user {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userid")
@@ -26,12 +26,16 @@ public class user {
 
     @ManyToOne
     @JoinColumn(name = "roleid", nullable = false)
-    private role roles;
+    private Roles roles;
 
     @Column(name = "enabled", nullable = false)
     private boolean enabled = true;
 
-    public user(int userid, String username, String password, String email, boolean enabled, role roles) {
+    public Users() {
+        // Default constructor required for JPA
+    }
+
+    public Users(int userid, String username, String password, String email, boolean enabled, Roles roles) {
         this.userid = userid;
         this.username = username;
         this.password = password;
@@ -75,10 +79,10 @@ public class user {
         this.enabled = enabled;
     }
 
-    public role getRole() {
+    public Roles getRole() {
         return roles;
     }
-    public void setRole(role roles) {
+    public void setRole(Roles roles) {
         this.roles = roles;
     }
 }

@@ -5,13 +5,13 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.modelo.seguridad.model.user;
+import com.modelo.seguridad.model.Users;
 
-public interface Iuser extends JpaRepository<user, Integer> {
-    Optional<user> findByUsername(String username);
+public interface Iuser extends JpaRepository<Users, Integer> {
+    Optional<Users> findByUsername(String username);
 
-    Optional<user> findByEmail(String email);
+    Optional<Users> findByEmail(String email);
 
-    List<user> findAllByEnabled(boolean enabled);
+    List<Users> findAllByEnabled(boolean enabled);
 
 }

@@ -1,20 +1,20 @@
 package com.modelo.seguridad.DTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.modelo.seguridad.model.page;
-import com.modelo.seguridad.model.role;
+import com.modelo.seguridad.model.Pages;
+import com.modelo.seguridad.model.Roles;
 
 public class Permission_roleDTO {
     @JsonProperty("id")
     private int permission_roleid;
-    private page page;
-    private role role;
+    private Pages page;
+    private Roles role;
     private String type;
 
     public Permission_roleDTO() {
     }
 
-    public Permission_roleDTO(int permission_roleid, page page, role role, String type) {
+    public Permission_roleDTO(int permission_roleid, Pages page, Roles role, String type) {
         this.permission_roleid = permission_roleid;
         this.page = page;
         this.role = role;
@@ -28,17 +28,17 @@ public class Permission_roleDTO {
         this.permission_roleid = permission_roleid;
     }
 
-    public page getPage() {
+    public Pages getPage() {
         return page;
     }
-    public void setPage(page page) {
+    public void setPage(Pages page) {
         this.page = page;
     }
 
-    public role getRole() {
+    public Roles getRole() {
         return role;
     }
-    public void setRole(role role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 

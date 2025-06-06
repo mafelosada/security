@@ -1,7 +1,7 @@
 package com.modelo.seguridad.DTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.modelo.seguridad.model.role;
+import com.modelo.seguridad.model.Roles;
 
 public class UserDTO{
     @JsonProperty("id")
@@ -9,18 +9,18 @@ public class UserDTO{
     private String username;
     private String password;
     private String email;
-    private role roles;
+    private Roles role;
     private boolean enabled;
 
     public UserDTO() {
     }
 
-    public UserDTO(int userid, String username, String password, String email, role roles, boolean enabled) {
+    public UserDTO(int userid, String username, String password, String email, Roles role, boolean enabled) {
         this.userid = userid;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.roles = roles;
+        this.role = role;
         this.enabled = enabled;
     }
 
@@ -52,11 +52,11 @@ public class UserDTO{
         this.email = email;
     }
 
-     public role getRole() {
-        return roles;
+     public Roles getRole() {
+        return role;
     }
-    public void setRole(role roles) {
-        this.roles = roles;
+    public void setRole(Roles role) {
+        this.role = role;
     }
 
     public boolean isEnabled() {

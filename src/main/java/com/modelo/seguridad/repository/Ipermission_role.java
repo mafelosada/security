@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.modelo.seguridad.model.permission_role;
+import com.modelo.seguridad.model.Permission_roles;
 
-public interface Ipermission_role extends JpaRepository<permission_role, Integer> {
+public interface Ipermission_role extends JpaRepository<Permission_roles, Integer> {
     @Query("SELECT pr FROM permission_role pr WHERE pr.role.id = ?1 AND pr.page.id = ?2")
-    List<permission_role> findByRoleIdAndPageId(Integer roleId, Integer pageId);
+    List<Permission_roles> findByRoleIdAndPageId(Integer roleId, Integer pageId);
 
 
 }

@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name = "role")
-public class role {
+public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "roleid")
@@ -19,11 +19,11 @@ public class role {
     @Column(name = "description", length = 255, nullable = true)
     private String description;
 
-    public role() {
+    public Roles() {
         // Constructor vacío necesario para JPA
     }
 
-    public role(int roleid, String name, String description) {
+    public Roles(int roleid, String name, String description) {
         this.roleid = roleid;
         this.name = name;
         this.description = description;

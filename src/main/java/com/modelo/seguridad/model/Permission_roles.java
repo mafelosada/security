@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name = "permission_role")
-public class permission_role{
+public class Permission_roles{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "permission_roleid")
@@ -17,17 +17,20 @@ public class permission_role{
 
     @ManyToOne
     @JoinColumn(name = "pageid", nullable = false)
-    private page page;
+    private Pages page;
 
     @ManyToOne
     @JoinColumn(name = "roleid", nullable = false)
-    private role role;
+    private Roles role;
 
     @Column(name = "type", nullable = false)
     private String type;
 
+    public Permission_roles() {
+        // Default constructor
+    }
 
-    public permission_role(int permission_roleid, page page, role role, String type) {
+    public Permission_roles(int permission_roleid, Pages page, Roles role, String type) {
         this.permission_roleid = permission_roleid;
         this.page = page;
         this.role = role;
@@ -41,17 +44,17 @@ public class permission_role{
         this.permission_roleid = permission_roleid;
     }
 
-    public page getPage() {
+    public Pages getPage() {
         return page;
     }
-    public void setPage(page page) {
+    public void setPage(Pages page) {
         this.page = page;
     }
 
-    public role getRole() {
+    public Roles getRole() {
         return role;
     }
-    public void setRole(role role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 

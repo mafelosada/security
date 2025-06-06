@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.modelo.seguridad.DTO.ResponsesDTO;
 import com.modelo.seguridad.DTO.RoleDTO;
-import com.modelo.seguridad.model.role;
+import com.modelo.seguridad.model.Roles;
 import com.modelo.seguridad.repository.Irole;
 
 @Service
@@ -18,16 +18,16 @@ public class RoleService {
      @Autowired
     private Irole data;
 
-    public List<role> findAll() {
+    public List<Roles> findAll() {
         return data.findAll();
     }
 
-    public Optional<role> findById(int id) {
+    public Optional<Roles> findById(int id) {
         return data.findById(id);
     }
 
     public ResponsesDTO deleteRole(int id) {
-        Optional<role> roleOpt = findById(id);
+        Optional<Roles> roleOpt = findById(id);
         if (!roleOpt.isPresent()) {
             return new ResponsesDTO(HttpStatus.NOT_FOUND.toString(), "El rol no existe");
         }
@@ -36,17 +36,17 @@ public class RoleService {
     }
 
     public ResponsesDTO save(RoleDTO roleDTO) {
-        role rol = convertToModel(roleDTO);
+        Roles rol = convertToModel(roleDTO);
         data.save(rol);
         return new ResponsesDTO(HttpStatus.OK.toString(), "Rol guardado correctamente");
     }
 
     public ResponsesDTO updateRole(int id, RoleDTO roleDTO) {
-        Optional<role> roleOpt = findById(id);
+        Optional<Roles> roleOpt = findById(id);
         if (!roleOpt.isPresent()) {
             return new ResponsesDTO(HttpStatus.NOT_FOUND.toString(), "El rol no existe");
         }
-        role updatedRole = roleOpt.get();
+        Roles updatedRole = roleOpt.get();
         updatedRole.setName(roleDTO.getName());
         updatedRole.setDescription(roleDTO.getDescription());
 
@@ -54,7 +54,7 @@ public class RoleService {
         return new ResponsesDTO(HttpStatus.OK.toString(), "Rol actualizado correctamente");
     }
 
-    public RoleDTO convertToDTO(role rol) {
+    public RoleDTO convertToDTO(Roles rol) {
         return new RoleDTO(
             rol.getRoleid(),
             rol.getName(),
@@ -62,8 +62,8 @@ public class RoleService {
         );
     }
 
-    public role convertToModel(RoleDTO roleDTO) {
-        return new role(
+    public Roles convertToModel(RoleDTO roleDTO) {
+        return new Roles(
             0, // Nuevo rol, id generado por BD
             roleDTO.getName(),
             roleDTO.getDescription()

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.modelo.seguridad.DTO.ResponsesDTO;
 import com.modelo.seguridad.DTO.RoleDTO;
-import com.modelo.seguridad.model.role;
+import com.modelo.seguridad.model.Roles;
 import com.modelo.seguridad.service.RoleService;
 
 import java.util.List;
@@ -27,14 +27,14 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping("/")
-    public ResponseEntity<List<role>> getAllRoles() {
-        List<role> roles = roleService.findAll();
+    public ResponseEntity<List<Roles>> getAllRoles() {
+        List<Roles> roles = roleService.findAll();
         return new ResponseEntity<>(roles, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getRoleById(@PathVariable int id) {
-        Optional<role> rol = roleService.findById(id);
+        Optional<Roles> rol = roleService.findById(id);
         if (!rol.isPresent()) {
             return new ResponseEntity<>("Rol no encontrado", HttpStatus.NOT_FOUND);
         }

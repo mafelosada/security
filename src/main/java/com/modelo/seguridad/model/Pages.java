@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name = "page")
-public class page {
+public class Pages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,11 @@ public class page {
     @Column(name = "url", length = 255, nullable = false)
     private String url;
 
-    public page(int pageid, String name, String url, String description) {
+    public Pages() {
+        // Default constructor
+    }
+
+    public Pages(int pageid, String name, String url, String description) {
         this.pageid = pageid;
         this.name = name;
         this.url = url;

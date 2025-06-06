@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity(name = "recovery_request")
-public class recovery_request {
+public class Recovery_requests {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "recovery_requestid")
@@ -26,9 +26,13 @@ public class recovery_request {
 
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
-    private user user;
+    private Users user;
 
-    public recovery_request(int recovery_requestid, String email, String token, long expirationTime, user user) {
+    public Recovery_requests() {
+        // Default constructor
+    }
+
+    public Recovery_requests(int recovery_requestid, String email, String token, long expirationTime, Users user) {
         this.recovery_requestid = recovery_requestid;
         this.email = email;
         this.token = token;
@@ -64,10 +68,10 @@ public class recovery_request {
         this.expirationTime = expirationTime;
     }
 
-    public user getUser() {
+    public Users getUser() {
         return user;
     }
-    public void setUser(user user) {
+    public void setUser(Users user) {
         this.user = user;
     }
     
